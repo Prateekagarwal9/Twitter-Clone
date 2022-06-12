@@ -10,6 +10,6 @@ router.use(function timeLog(req, res, next) {
 });
 
 
-router.post('/login', authController.loginController);
-
+router.post('/register', authController.registerController);
+router.post('/login',authController.loginController)
 module.exports = router;

@@ -1,21 +1,32 @@
 {
-  "name": "twitter",
+  "name": "vendorbackend",
   "version": "1.0.0",
-  "description": "Creation of Twitter Clone Application",
+  "description": "this project is regarding empcare vendor portal",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Prateek",
+  "author": "Divaker",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "helmet": "^5.1.0",
-    "mssql": "^8.1.2",
-    "passport": "^0.6.0",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mssql": "^7.2.1",
+    "nodemailer": "^6.7.1",
+    "nodemon": "^2.0.16",
+    "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
-    "winston": "^3.7.2"
+    "passport-local": "^1.0.0",
+    "pm2": "^5.1.2",
+    "rand-token": "^1.0.1",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
   }
 }

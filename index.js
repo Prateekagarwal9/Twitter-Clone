@@ -1,20 +1,16 @@
 const dotenv = require('dotenv').config()
 const express = require('express')
-const sql = require('mssql')
 const app = express()
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const helmet = require('helmet');
 const authRouter = require("./routers/authRouter");
-
-// var passport = require("passport");
-
-// require("./config/passportStrategy");
+const dashboardRouter = require("./routers/dashboardRouter");
 
 const whitelistOrigins = ['http://localhost:3000'];
 const port = process.env.PORT
 
-// app.use(passport.initialize())
+
 // app.use(passport.session())
 var corsOptions = {
     origin: whitelistOrigins,
@@ -24,6 +20,7 @@ var corsOptions = {
 app.use(bodyParser.urlencoded());
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(helmet());
@@ -36,8 +33,9 @@ cors({
 
 // router imports
 
-app.use("/auth", authRouter);
 
+app.use("/auth", authRouter);
+app.use("/api", dashboardRouter);
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:3000`)
+    console.log(`Example app listening at http://localhost:${port}`)
 })

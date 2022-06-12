@@ -1,16 +1,36 @@
 const azureSqlDb = require('../dataAccess/azureSQLDB')
 var crypto = require('crypto');
 
-const fetchLoginCredentialsService = async (requestBodyParameters) => {
-    userCreds = await azureSqlDb.retrieveItemsFromDB('FetchLoginCredentials', requestBodyParameters)
-    if (userCreds.length > 0) {
-        return userCreds;
-    }
-    throw ('Invalid Credentials');
+
+const registerUserService = async (requestBodyParameters) => {
+    return resultSet = await azureSqlDb.retrieveItemsFromDB('InsertUserDetails', requestBodyParameters)
 
 }
 
+const loginUserService = async (requestBodyParameters) => {
+    return resultSet = await azureSqlDb.retrieveItemsFromDB('FetchUserDetails', requestBodyParameters)
+
+}
+
+const updateUserService = async (requestBodyParameters) => {
+    return resultSet = await azureSqlDb.retrieveItemsFromDB('UpdateUserDetails', requestBodyParameters)
+
+}
+
+const insertTweetService = async (requestBodyParameters) => {
+    return resultSet = await azureSqlDb.retrieveItemsFromDB('InsertTweet', requestBodyParameters)
+
+}
+
+const tweetListService = async (requestBodyParameters) => {
+    return resultSet = await azureSqlDb.retrieveItemsFromDB('TweetList', requestBodyParameters)
+
+}
 
 module.exports = {
-    fetchLoginCredentialsService
+    registerUserService,
+    loginUserService,
+    updateUserService,
+    insertTweetService,
+    tweetListService
 }

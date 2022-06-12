@@ -1,4 +1,4 @@
-const dbLayer = require('../dbLayer');
+const db = require('./db');
 
 var azureSQLDBConnection = {
     connection: null,
@@ -18,12 +18,12 @@ var azureSQLDBConnection = {
                                 idleTimeoutMillis: 30000
                             },
                             options: {
-                                encrypt: true, // for azure
-                                trustServerCertificate: false // change to true for local dev / self-signed certs
+                                encrypt: true, 
+                                trustServerCertificate: true // change to true for local dev / self-signed certs
                             }
                         }
 
-                        this.connection = dbLayer.createSqlConnection(connectionConfig);
+                        this.connection = db.createSqlConnection(connectionConfig);
                         resolve(this.connection);
                 } else {
                     // Return existing connection 
